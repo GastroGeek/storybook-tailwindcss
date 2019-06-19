@@ -1,5 +1,6 @@
 import Vue from 'vue'
-import { camelCase, upperFirst } from 'lodash'
+import camelCase from 'lodash/camelCase'
+import upperFirst from 'lodash/upperFirst'
 
 const loadComponents = () => {
   const componentContext = require.context(
