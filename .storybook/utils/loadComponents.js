@@ -2,7 +2,6 @@ import Vue from 'vue'
 import { camelCase, upperFirst } from 'lodash'
 
 const loadComponents = () => {
-  // automatically register all components globally
   const componentContext = require.context(
     '../../src/components',
     true,
@@ -20,7 +19,7 @@ const loadComponents = () => {
           .replace(/\.\w+$/, '')
       )
     )
-    console.log('Registering: ', componentName)
+
     Vue.component(componentName, componentConfig.default || componentConfig)
   })
 }

@@ -3,13 +3,12 @@ import { configure } from '@storybook/vue';
 
 import { loadComponents } from '@utils/loadComponents'
 
-loadComponents()
+require('@/assets/css/main.scss')
 
-require('../src/assets/css/main.scss')
+loadComponents()
 
 function loadStories() {
   const req = require.context('../src/components', true, /\.stories\.js$/);
-  console.log(req.keys())
   req.keys().forEach(filename => req(filename));
 }
 

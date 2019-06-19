@@ -1,11 +1,6 @@
 const { resolve } = require('path')
 
 module.exports = async ({ config, mode }) => {
-  config.module.rules = config.module.rules.filter(rule => !rule.test.toString().includes('styl'))
-  config.module.rules = config.module.rules.filter(rule => !rule.test.toString().includes('css'))
-
-  config.resolve.extensions.push('.scss')
-
   config.module.rules.push({
     test: /\.s?css$/,
     loaders: [
@@ -35,6 +30,7 @@ module.exports = async ({ config, mode }) => {
   });
 
 
+  config.resolve.alias['@'] = resolve(__dirname, '../src')
   config.resolve.alias['@utils'] = resolve(__dirname, 'utils')
 
   return config
